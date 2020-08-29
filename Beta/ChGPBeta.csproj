@@ -1,0 +1,177 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4DED8239-86D0-4168-9B35-5735A977E45F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SkladRM</RootNamespace>
+    <AssemblyName>ChGP</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <DeployDirSuffix>ChGP</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DATALOGIC</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SYMBOL</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MExprDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GenTerm\MExprDll.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGrid" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\GenTerm\DataSrv.cs">
+      <Link>DataSrv.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\GenTerm\GenDev.cs">
+      <Link>GenDev.cs</Link>
+    </Compile>
+    <Compile Include="..\..\GenTerm\WMCE_Constants.cs">
+      <Link>WMCE_Constants.cs</Link>
+    </Compile>
+    <Compile Include="DataTables.cs" />
+    <Compile Include="exchg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenFuncs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainF.designer.cs">
+      <DependentUpon>MainF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModGP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelAppPars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelNSI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelPars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelServ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelVvod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlatformSpec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProceedAdr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProceedScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProceedScanKMPL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProceedSSCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProceedZvk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainF.resx">
+      <DependentUpon>MainF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PSC_Constants.cs" />
+    <Compile Include="ServClass.cs" />
+    <Compile Include="Shared.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GenTerm\ScanWM\BarcodeScanner.csproj">
+      <Project>{19E11EB3-AD56-4E27-9045-3060BB369146}</Project>
+      <Name>BarcodeScanner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GenTerm\Sockets\SavuSocket\SavuSocket.csproj">
+      <Project>{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}</Project>
+      <Name>SavuSocket</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+</Project>

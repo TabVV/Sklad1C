@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<Root Database="NS_USER">
+    <NS_USER>
+      <KP>123</KP>
+      <PP>1213</PP>
+      <NMP>audit1</NMP>
+      <TABN>123</TABN>
+      <KSK>0</KSK>
+      <RIGHTS>0</RIGHTS>
+    </NS_USER>
+</Root>

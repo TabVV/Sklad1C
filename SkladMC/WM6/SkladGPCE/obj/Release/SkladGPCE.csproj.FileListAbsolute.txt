@@ -1,0 +1,16 @@
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\obj\Release\ResolveAssemblyReference.cache
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\obj\Release\SkladGP.MainF.resources
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\obj\Release\SkladGP.Properties.Resources.resources
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\obj\Release\SkladGPCE.csproj.GenerateResource.Cache
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\SkladGP.exe
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\SkladGP.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\MExprDll.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\SavuSocket.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\ScannerAll.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\SavuSocket.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\obj\Release\SkladGP.exe
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\obj\Release\SkladGP.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\datalogic.pdc.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\datalogic.wireless2005.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\datalogic.datacapture.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SkladGPCE\bin\Release\ScannerAll.pdb

@@ -1,0 +1,121 @@
+<?xml version="1.0" standalone="yes"?>
+<dsM>
+  <BD_DOCOUT>
+    <SYSN>-16</SYSN>
+    <TD>6</TD>
+    <NOMD />
+    <DT>20161107</DT>
+    <KSK>4</KSK>
+    <DOCBC>RNA16B7R3RMR201426</DOCBC>
+    <SOURCE>3</SOURCE>
+    <TIMECR>2016-11-27T13:32:49+04:00</TIMECR>
+    <TYPKPP>1</TYPKPP>
+    <MEST>0</MEST>
+    <MESTZ>7</MESTZ>
+    <TYPOP>5</TYPOP>
+    <EXPR_DT>07.11.16</EXPR_DT>
+    <EXPR_SRC>Выгр</EXPR_SRC>
+  </BD_DOCOUT>
+  <BD_DIND>
+    <SYSN>-16</SYSN>
+    <KRKMC>0</KRKMC>
+    <KOLE>10</KOLE>
+    <KOLM>1</KOLM>
+    <DTG>20161218</DTG>
+    <NP />
+    <EMK>10</EMK>
+    <KMC>f1bd4120-bcb4-11e4-9da6-78e7d1f6cee2</KMC>
+    <SNM>Салат "Оливье" 130 г 1/10</SNM>
+    <COND>16</COND>
+    <READYZ>0</READYZ>
+    <ADRFROM />
+    <ADRTO />
+    <SSCC />
+    <SSCCINT />
+  </BD_DIND>
+  <BD_DIND>
+    <SYSN>-16</SYSN>
+    <KRKMC>0</KRKMC>
+    <KOLE>20</KOLE>
+    <KOLM>2</KOLM>
+    <DTG>20161215</DTG>
+    <NP />
+    <EMK>10</EMK>
+    <KMC>6001a40a-bcb8-11e4-9da6-78e7d1f6cee2</KMC>
+    <SNM>Салат с копченым мясом 130 г 1/10</SNM>
+    <COND>16</COND>
+    <READYZ>0</READYZ>
+    <ADRFROM />
+    <ADRTO />
+    <SSCC />
+    <SSCCINT />
+  </BD_DIND>
+  <BD_DIND>
+    <SYSN>-16</SYSN>
+    <KRKMC>678</KRKMC>
+    <KOLE>6</KOLE>
+    <KOLM>1</KOLM>
+    <DTG>20170721</DTG>
+    <NP />
+    <EMK>10</EMK>
+    <KMC>c5807c52-594b-11e6-9962-78e7d1f6cee2</KMC>
+    <SNM>Икра зернистая лососевая "Русское море" стекло 160г 2016г 1/6</SNM>
+    <COND>16</COND>
+    <READYZ>0</READYZ>
+    <ADRFROM />
+    <ADRTO />
+    <SSCC />
+    <SSCCINT />
+  </BD_DIND>
+  <BD_DIND>
+    <SYSN>-16</SYSN>
+    <KRKMC>806</KRKMC>
+    <KOLE>6</KOLE>
+    <KOLM>1</KOLM>
+    <DTG>20161213</DTG>
+    <NP />
+    <EMK>10</EMK>
+    <KMC>f3a1d69a-49b7-11e6-9962-78e7d1f6cee2</KMC>
+    <SNM>Форель слабосоленая филе-кусок "Санта Бремор" 200г 1/6 +режим</SNM>
+    <COND>16</COND>
+    <READYZ>0</READYZ>
+    <ADRFROM />
+    <ADRTO />
+    <SSCC />
+    <SSCCINT />
+  </BD_DIND>
+  <BD_DIND>
+    <SYSN>-16</SYSN>
+    <KRKMC>0</KRKMC>
+    <KOLE>12</KOLE>
+    <KOLM>1</KOLM>
+    <DTG>20170218</DTG>
+    <NP />
+    <EMK>10</EMK>
+    <KMC>a5cd92ca-874a-11e4-9976-78e7d1f6cee2</KMC>
+    <SNM>Паста из морепродуктов "Антарктик-Криль классический" 150г /12</SNM>
+    <COND>16</COND>
+    <READYZ>0</READYZ>
+    <ADRFROM />
+    <ADRTO />
+    <SSCC />
+    <SSCCINT />
+  </BD_DIND>
+  <BD_DIND>
+    <SYSN>-16</SYSN>
+    <KRKMC>147</KRKMC>
+    <KOLE>15</KOLE>
+    <KOLM>1</KOLM>
+    <DTG>20170103</DTG>
+    <NP />
+    <EMK>10</EMK>
+    <KMC>58831b5b-68cd-4740-9396-ba0a76ed45b9</KMC>
+    <SNM>Мясо крабовое охлажд."Бремор" (имитация)  200/15 н.уп.</SNM>
+    <COND>16</COND>
+    <READYZ>0</READYZ>
+    <ADRFROM />
+    <ADRTO />
+    <SSCC />
+    <SSCCINT />
+  </BD_DIND>
+</dsM>

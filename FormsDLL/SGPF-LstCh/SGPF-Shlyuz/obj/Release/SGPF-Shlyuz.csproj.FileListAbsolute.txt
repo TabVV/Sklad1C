@@ -1,0 +1,3 @@
+D:\Soft\CSh\Term\SkladGPCE_N\FormsDLL\SGPF-Shlyuz\SGPF-Shlyuz\obj\Release\ResolveAssemblyReference.cache
+D:\Soft\CSh\Term\SkladGPCE_N\FormsDLL\SGPF-Shlyuz\SGPF-Shlyuz\obj\Release\SkladGP.Shlyuz.resources
+D:\Soft\CSh\Term\SkladGPCE_N\FormsDLL\SGPF-Shlyuz\SGPF-Shlyuz\obj\Release\SGPF-Shlyuz.csproj.GenerateResource.Cache

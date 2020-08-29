@@ -1,0 +1,16 @@
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\SGPF-Brak.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\SGPF-Brak.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\obj\Debug\ResolveAssemblyReference.cache
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\obj\Debug\SGPF-Brak.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\obj\Debug\SGPF-Brak.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\obj\Debug\SGPF-Brak.csproj.GenerateResource.Cache
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\obj\Debug\SkladGP_Forms.Shlyuz.resources
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\SavuSocket.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\ScannerAll.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\SkladGP.exe
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\datalogic.pdc.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\datalogic.datacapture.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\datalogic.wireless2005.dll
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\SkladGP.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\SavuSocket.pdb
+D:\Soft\CSh\Term\SkladGPCE_N\SGPF-Brak\SGPF-Brak\bin\Debug\ScannerAll.pdb

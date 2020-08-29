@@ -1,0 +1,3 @@
+d:\Soft\Term\Sklad1C\SkladMC\Beta\obj\Debug\ResolveAssemblyReference.cache
+d:\Soft\Term\Sklad1C\SkladMC\Beta\obj\Debug\SkladRM.MainF.resources
+d:\Soft\Term\Sklad1C\SkladMC\Beta\obj\Debug\ChGPBeta.csproj.GenerateResource.Cache

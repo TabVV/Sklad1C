@@ -1,0 +1,17 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SkladGP.Avtor.resources
+obj\Debug\SkladGP.MainF.resources
+obj\Debug\SkladGP.Properties.Resources.resources
+obj\Debug\SkladGPCE.csproj.GenerateResource.Cache
+obj\Debug\SkladGP.exe
+bin\Debug\SkladGP.exe
+bin\Debug\SkladGP.pdb
+bin\Debug\MExprDll.dll
+bin\Debug\SavuSocket.dll
+bin\Debug\ScannerAll.dll
+bin\Debug\SavuSocket.pdb
+bin\Debug\ScannerAll.pdb
+obj\Debug\SkladGP.pdb
+bin\Debug\datalogic.pdc.dll
+bin\Debug\datalogic.wireless2005.dll
+bin\Debug\datalogic.datacapture.dll
