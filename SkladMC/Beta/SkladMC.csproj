@@ -52,7 +52,7 @@
   <ItemGroup>
     <Reference Include="MExprDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\GenTerm\MExprDll.dll</HintPath>
+      <HintPath>..\..\FormsDLL\MExprDll.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />

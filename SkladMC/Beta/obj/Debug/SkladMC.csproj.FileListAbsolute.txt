@@ -47,3 +47,4 @@ M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\Datalogic.API.dll
 M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\datalogic.wireless2005.dll
 M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\datalogic.pdc.dll
 M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\datalogic.datacapture.dll
+m:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\MExprDll.dll
