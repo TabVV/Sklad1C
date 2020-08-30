@@ -68,11 +68,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\GenTerm\ScanWM\BarcodeScanner.csproj">
+    <ProjectReference Include="..\..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj">
       <Project>{19E11EB3-AD56-4E27-9045-3060BB369146}</Project>
       <Name>BarcodeScanner</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\GenTerm\Sockets\SavuSocket\SavuSocket.csproj">
+    <ProjectReference Include="..\..\..\..\GeneralTerminal\Sockets\SavuSocket\SavuSocket.csproj">
       <Project>{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}</Project>
       <Name>SavuSocket</Name>
     </ProjectReference>

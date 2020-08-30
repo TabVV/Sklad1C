@@ -68,7 +68,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\GenTerm\ScanWM\BarcodeScanner.csproj">
+    <ProjectReference Include="..\..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj">
       <Project>{19E11EB3-AD56-4E27-9045-3060BB369146}</Project>
       <Name>BarcodeScanner</Name>
     </ProjectReference>
