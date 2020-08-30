@@ -27,5 +27,5 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-#!ExprDll.dll
+#!MExprDll.dll
 #!SkladMC.exe
