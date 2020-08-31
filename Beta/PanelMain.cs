@@ -1122,9 +1122,9 @@ namespace SkladRM
                     bHandledKey = ProceedFunc(nF, e, sender);
                 }
             }
-            catch
+            catch(Exception exx)
             {
-                Srv.ErrorMsg("Ошибка обработки", true);
+                Srv.ErrorMsg("Ошибка обработки - " + exx.Message, true);
             }
 
             // а здесь - только клавиши

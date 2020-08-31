@@ -2204,6 +2204,8 @@ namespace SkladRM
         // дополнение НСИ из заявки
         public void AddNewNSI(DataSet ds)
         {
+            int
+                iAdd = 0;
             string
                 i = "",
                 sP;
@@ -2228,9 +2230,10 @@ namespace SkladRM
                             {
                                 ProceedOneRowMC(dr);
                                 aIt = dr.ItemArray;
-                                drF = DT[NS_MC].dt.Rows.Find(new object[] { dr["KMС"] });
+                                drF = DT[NS_MC].dt.Rows.Find(new object[] { dr["KMC"] });
                                 if (null == drF)
                                 {// в справочнике такого не было
+                                    iAdd++;
                                     drF = DT[NS_MC].dt.NewRow();
                                     DT[NS_MC].dt.Rows.Add(drF);
                                 }
@@ -2244,10 +2247,11 @@ namespace SkladRM
                             i = NS_PP;
                             break;
                     }
-                    if (i.Length > 0)
+                    if (iAdd > 0)
                     {
-                        sP = sPathNSI + DT[i].sXML;
-                        DT[i].dt.WriteXml(sP);
+                        DT[i].nAdded += iAdd;
+                        //sP = sPathNSI + DT[i].sXML;
+                        //DT[i].dt.WriteXml(sP);
                     }
                 }
             }
@@ -2371,6 +2375,14 @@ namespace SkladRM
             try
             {
                 dsM.WriteXml(sF + sP_CSDat);
+                foreach (DataTable dt in dsNSI.Tables)
+                {
+                    if (DT[dt.TableName].nAdded > 0)
+                    {
+                        dt.WriteXml( sPathNSI + DT[dt.TableName].sXML );
+                    }
+                }
+
             }
             catch
             {

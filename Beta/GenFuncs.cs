@@ -765,23 +765,17 @@ namespace SkladRM
 
             if (nRetEdit == AppC.RC_OK)
             {// закончили по Enter, начало загрузки
-                //int nC = (xDP.nTypD == AppC.TYPD_INV) ? AppC.COM_VINV : AppC.COM_VTTN;
                 AutoSaveDat();
-                //if (xCDoc.nTypOp == AppC.TYPOP_DOCUM)
 
                 if (xSm.RegApp == AppC.REG_DOC)
                 {
-                    //Cursor crsOld = Cursor.Current;
-                    //Cursor.Current = Cursors.WaitCursor;
 
                     LoadFromSrv dgL = new LoadFromSrv(DocFromSrv);
-                    //xCLoad.dr1st = null;
                     xCLoad.nCommand = AppC.F_LOAD_DOC;
-                    //xCLoad.sComLoad = AppC.COM_ZZVK;
                     xCLoad.sComLoad = AppC.COM_ZDOC;
+
                     string sL = xSE.ExchgSrv(AppC.COM_ZDOC, "", "", dgL, null, ref nRet);
 
-                    //Cursor.Current = crsOld;
 
                     MessageBox.Show("Загрузка окончена - " + sL, "Код - " + nRet.ToString());
                 }
@@ -809,10 +803,6 @@ namespace SkladRM
                 }
                 EndOfLoad(AppC.RC_OK);
             }
-            //else
-            //{
-            //    tFiction.Focus();
-            //}
         }
 
 
