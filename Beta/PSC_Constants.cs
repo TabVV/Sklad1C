@@ -3160,11 +3160,27 @@ namespace SkladRM
                     bFindNSI = true;
                     drMC = dr;
                     sKMC = dr["KMC"].ToString();
-                    nKrKMC = int.Parse(dr["KRKMC"].ToString());
+                    try
+                    {
+                        nKrKMC = int.Parse(dr["KRKMC"].ToString());
+                    }
+                    catch
+                    {
+                        nKrKMC = 0;
+                        dr["KRKMC"] = 0;
+                    }
                     sEAN = ((string)dr["EAN13"]).Trim();
 
                     sN = dr["SNM"].ToString();
-                    nSrok = int.Parse(dr["SRR"].ToString());
+                    try
+                    {
+                        nSrok = int.Parse(dr["SRR"].ToString());
+                    }
+                    catch
+                    {
+                        nSrok = 0;
+                        dr["SRR"] = 0;
+                    }
                     try
                     {
                         bVes = (int.Parse(dr["SRP"].ToString()) > 0) ? true : false;

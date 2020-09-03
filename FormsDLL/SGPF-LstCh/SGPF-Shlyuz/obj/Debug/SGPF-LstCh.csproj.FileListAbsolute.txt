@@ -197,7 +197,7 @@ M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\MExprDLL
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\SavuSocket.pdb
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\SkladMC.pdb
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\ScannerAll.pdb
-m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\Datalogic.API.dll
-m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\datalogic.wireless2005.dll
-m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\datalogic.pdc.dll
-m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\datalogic.datacapture.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\Datalogic.API.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\datalogic.wireless2005.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\datalogic.pdc.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-LstCh\SGPF-Shlyuz\bin\Debug\datalogic.datacapture.dll

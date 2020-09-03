@@ -2128,8 +2128,19 @@ namespace SkladRM
         //
         private void ProceedOneRowMC(DataRow dr)
         {
-            if ( (dr["KMT"] is string) && !((dr["EAN13"] is string) && (((string)(dr["EAN13"])).Length > 0)) )
+            if ((dr["KMT"] is string) && !((dr["EAN13"] is string) && (((string)(dr["EAN13"])).Length > 0)))
                 dr["EAN13"] = dr["KMT"];
+
+            //if (!((dr["EAN13"] is string) && (((string)(dr["EAN13"])).Length == 13)))
+            //{// Если EAN13 какой-то кривой
+            //    if ((dr["KMT"] is string) && (((string)(dr["KMT"])).Length > 0))
+            //    {
+            //        string s = (string)dr["KMT"];
+            //        dr["EAN13"] = Srv.CheckSumModul10( "20" + s.PadLeft(10, '0') );
+            //    }
+            //}
+
+
             if (!(dr["SRP"] is int))
                 dr["SRP"] = 0;
         }
@@ -2238,6 +2249,7 @@ namespace SkladRM
                                     DT[NS_MC].dt.Rows.Add(drF);
                                 }
                                 drF.ItemArray = aIt;
+                                ProceedOneRowMC(drF);
                             }
                             break;
                         case NS_USER:

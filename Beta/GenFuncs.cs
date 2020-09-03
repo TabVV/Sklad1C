@@ -760,6 +760,8 @@ namespace SkladRM
         {
             int 
                 nRet = AppC.RC_OK;
+            string 
+                sL = "";
             ServerExchange 
                 xSE = new ServerExchange(this);
 
@@ -774,7 +776,11 @@ namespace SkladRM
                     xCLoad.nCommand = AppC.F_LOAD_DOC;
                     xCLoad.sComLoad = AppC.COM_ZDOC;
 
-                    string sL = xSE.ExchgSrv(AppC.COM_ZDOC, "", "", dgL, null, ref nRet);
+                    //-*-*- Debug Only
+                    //DocFromSrv(null, null, null, ref sL, 0);
+                    //-*-*-
+
+                    sL = xSE.ExchgSrv(AppC.COM_ZDOC, "", "", dgL, null, ref nRet);
 
 
                     MessageBox.Show("Загрузка окончена - " + sL, "Код - " + nRet.ToString());
