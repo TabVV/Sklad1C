@@ -142,3 +142,17 @@ M:\Soft\Term\SkladGit\SkladGP\Beta\bin\Debug\Datalogic.API.dll
 M:\Soft\Term\SkladGit\SkladGP\Beta\bin\Debug\datalogic.wireless2005.dll
 M:\Soft\Term\SkladGit\SkladGP\Beta\bin\Debug\datalogic.pdc.dll
 M:\Soft\Term\SkladGit\SkladGP\Beta\bin\Debug\datalogic.datacapture.dll
+M:\Soft\Term\SkladGit\Sklad1C\Beta\obj\Debug\ResolveAssemblyReference.cache
+M:\Soft\Term\SkladGit\Sklad1C\Beta\obj\Debug\SkladRM.MainF.resources
+M:\Soft\Term\SkladGit\Sklad1C\Beta\obj\Debug\SkladRM.Properties.Resources.resources
+M:\Soft\Term\SkladGit\Sklad1C\Beta\obj\Debug\ChGPBeta.csproj.GenerateResource.Cache
+M:\Soft\Term\SkladGit\Sklad1C\Beta\obj\Debug\ChGP.exe
+M:\Soft\Term\SkladGit\Sklad1C\Beta\obj\Debug\ChGP.pdb
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\ChGP.exe
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\ChGP.pdb
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\SavuSocket.dll
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\ScannerAll.dll
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\DOTNET_MHL_V3.dll
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\DOTNET_MHL_V3.pdb
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\SavuSocket.pdb
+m:\Soft\Term\SkladGit\Sklad1C\Beta\bin\Debug\ScannerAll.pdb

@@ -53,32 +53,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NPodd2Sscc.cs">
+    <Compile Include="..\..\..\..\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\NPodd2Sscc.cs">
+      <Link>NPodd2Sscc.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NPodd2Sscc.designer.cs">
+    <Compile Include="..\..\..\..\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\NPodd2Sscc.designer.cs">
+      <Link>NPodd2Sscc.designer.cs</Link>
       <DependentUpon>NPodd2Sscc.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="NPodd2Sscc.resx">
+    <EmbeddedResource Include="..\..\..\..\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\NPodd2Sscc.resx">
+      <Link>NPodd2Sscc.resx</Link>
       <DependentUpon>NPodd2Sscc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj">
+    <ProjectReference Include="..\..\..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj">
       <Project>{19E11EB3-AD56-4E27-9045-3060BB369146}</Project>
       <Name>BarcodeScanner</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\GeneralTerminal\Sockets\SavuSocket\SavuSocket.csproj">
+    <ProjectReference Include="..\..\..\..\..\GeneralTerminal\Sockets\SavuSocket\SavuSocket.csproj">
       <Project>{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}</Project>
       <Name>SavuSocket</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Beta\ChGPBeta.csproj">
+    <ProjectReference Include="..\..\..\Beta\SkladMC.csproj">
       <Project>{4DED8239-86D0-4168-9B35-5735A977E45F}</Project>
-      <Name>ChGPBeta</Name>
+      <Name>SkladMC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

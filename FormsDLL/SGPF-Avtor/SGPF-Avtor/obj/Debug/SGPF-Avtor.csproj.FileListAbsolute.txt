@@ -209,12 +209,10 @@ M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\SGPF-Avto
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\SGPF-Avtor.pdb
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\SavuSocket.dll
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\ScannerAll.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\SkladMC.exe
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\MExprDLL.dll
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\SavuSocket.pdb
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\SkladMC.pdb
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\ScannerAll.pdb
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\Datalogic.API.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\datalogic.wireless2005.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\datalogic.pdc.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\datalogic.datacapture.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\DOTNET_MHL_V3.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\DOTNET_MHL_V3.pdb
+m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\ChGP.exe
+m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-Avtor\SGPF-Avtor\bin\Debug\ChGP.pdb

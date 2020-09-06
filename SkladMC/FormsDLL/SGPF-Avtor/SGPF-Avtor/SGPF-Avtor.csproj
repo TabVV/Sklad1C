@@ -4,16 +4,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{767AF674-94CA-4437-9B99-898010099D7D}</ProjectGuid>
+    <ProjectGuid>{5E414D56-EC24-4F32-96D3-2FDB9CAE0092}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SGPF_PdSSCC</RootNamespace>
-    <AssemblyName>SGPF-PdSSCC</AssemblyName>
+    <RootNamespace>SGPF_Avtor</RootNamespace>
+    <AssemblyName>SGPF-Avtor</AssemblyName>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PlatformFamilyName>WindowsCE</PlatformFamilyName>
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
     <OSVersion>5.0</OSVersion>
-    <DeployDirSuffix>SGPG_PdSSCC</DeployDirSuffix>
+    <DeployDirSuffix>SGPF_Avtor</DeployDirSuffix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
@@ -53,32 +53,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NPodd2Sscc.cs">
+    <Compile Include="..\..\..\..\FormsDLL\SGPF-Avtor\SGPF-Avtor\Avtor.cs">
+      <Link>Avtor.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NPodd2Sscc.designer.cs">
-      <DependentUpon>NPodd2Sscc.cs</DependentUpon>
+    <Compile Include="..\..\..\..\FormsDLL\SGPF-Avtor\SGPF-Avtor\Avtor.designer.cs">
+      <Link>Avtor.designer.cs</Link>
+      <DependentUpon>Avtor.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="NPodd2Sscc.resx">
-      <DependentUpon>NPodd2Sscc.cs</DependentUpon>
+    <EmbeddedResource Include="..\..\..\..\FormsDLL\SGPF-Avtor\SGPF-Avtor\Avtor.resx">
+      <Link>Avtor.resx</Link>
+      <DependentUpon>Avtor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj">
+    <ProjectReference Include="..\..\..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj">
       <Project>{19E11EB3-AD56-4E27-9045-3060BB369146}</Project>
       <Name>BarcodeScanner</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\GeneralTerminal\Sockets\SavuSocket\SavuSocket.csproj">
+    <ProjectReference Include="..\..\..\..\..\GeneralTerminal\Sockets\SavuSocket\SavuSocket.csproj">
       <Project>{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}</Project>
       <Name>SavuSocket</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Beta\ChGPBeta.csproj">
+    <ProjectReference Include="..\..\..\Beta\SkladMC.csproj">
       <Project>{4DED8239-86D0-4168-9B35-5735A977E45F}</Project>
-      <Name>ChGPBeta</Name>
+      <Name>SkladMC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

@@ -76,9 +76,9 @@
       <Project>{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}</Project>
       <Name>SavuSocket</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\SkladMC\Beta\SkladMC.csproj">
+    <ProjectReference Include="..\..\..\Beta\ChGPBeta.csproj">
       <Project>{4DED8239-86D0-4168-9B35-5735A977E45F}</Project>
-      <Name>SkladMC</Name>
+      <Name>ChGPBeta</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

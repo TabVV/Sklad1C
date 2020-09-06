@@ -29,7 +29,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DATALOGIC</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NRDMERLIN</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -52,7 +52,7 @@
   <ItemGroup>
     <Reference Include="MExprDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FormsDLL\MExprDll.dll</HintPath>
+      <HintPath>..\FormsDLL\MExprDll.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGPF-Avtor", "SGPF-Avtor\SGPF-Avtor.csproj", "{5E414D56-EC24-4F32-96D3-2FDB9CAE0092}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner", "..\..\..\GenTerm\ScanWM\BarcodeScanner.csproj", "{19E11EB3-AD56-4E27-9045-3060BB369146}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner", "..\..\..\GeneralTerminal\ScanWM\BarcodeScanner.csproj", "{19E11EB3-AD56-4E27-9045-3060BB369146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SavuSocket", "..\..\..\GenTerm\Sockets\GenSock\SavuSocket\SavuSocket.csproj", "{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SavuSocket", "..\..\..\GeneralTerminal\Sockets\SavuSocket\SavuSocket.csproj", "{E891BF5B-DEF8-44F4-9EDE-605ADFA9FF02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkladRMBeta", "..\..\Beta\SkladRMBeta.csproj", "{4DED8239-86D0-4168-9B35-5735A977E45F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChGPBeta", "..\..\Beta\ChGPBeta.csproj", "{4DED8239-86D0-4168-9B35-5735A977E45F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

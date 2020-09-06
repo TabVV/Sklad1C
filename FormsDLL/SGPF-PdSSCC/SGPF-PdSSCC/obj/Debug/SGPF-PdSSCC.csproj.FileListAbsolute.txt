@@ -123,13 +123,11 @@ M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\obj\Debug\SGPF-Pd
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\SGPF-PdSSCC.dll
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\SGPF-PdSSCC.pdb
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\ScannerAll.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\SkladMC.exe
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\SavuSocket.dll
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\MExprDLL.dll
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\SavuSocket.pdb
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\SkladMC.pdb
 M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\ScannerAll.pdb
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\Datalogic.API.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\datalogic.wireless2005.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\datalogic.pdc.dll
-M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\datalogic.datacapture.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\DOTNET_MHL_V3.dll
+M:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\DOTNET_MHL_V3.pdb
+m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\ChGP.exe
+m:\Soft\Term\SkladGit\Sklad1C\FormsDLL\SGPF-PdSSCC\SGPF-PdSSCC\bin\Debug\ChGP.pdb

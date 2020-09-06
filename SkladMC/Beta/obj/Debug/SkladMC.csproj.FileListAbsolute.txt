@@ -44,7 +44,5 @@ M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\obj\Debug\SkladMC.csproj.GenerateReso
 M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\obj\Debug\SkladMC.exe
 M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\obj\Debug\SkladMC.pdb
 m:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\MExprDll.dll
-M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\Datalogic.API.dll
-M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\datalogic.wireless2005.dll
-M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\datalogic.pdc.dll
-M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\datalogic.datacapture.dll
+M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\DOTNET_MHL_V3.dll
+M:\Soft\Term\SkladGit\Sklad1C\SkladMC\Beta\bin\Debug\DOTNET_MHL_V3.pdb
