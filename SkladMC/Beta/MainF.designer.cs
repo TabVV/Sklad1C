@@ -1304,7 +1304,7 @@ namespace SkladRM
             this.cmbField.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.cmbField.Items.Add("Код");
             this.cmbField.Items.Add("Партия");
-            this.cmbField.Items.Add("EAN");
+            this.cmbField.Items.Add("KMT-EAN");
             this.cmbField.Items.Add("Дата");
             this.cmbField.Items.Add("Мест");
             this.cmbField.Items.Add("Емкость");

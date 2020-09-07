@@ -1108,9 +1108,10 @@ namespace SkladRM
             }
             catch
             {
-                verPars = new Version("0.0.0.0");
+                verPars = new Version("0.0");
             }
-            if (verPars.CompareTo(verApp) < 0)
+            if ( (verPars.Major < verApp.Major) ||
+               ((verPars.Major == verApp.Major) && (verPars.Minor < verApp.Minor)) )
             {
                 bNeedSave = true;
                 xNew.AppParsVer = verApp.ToString();
