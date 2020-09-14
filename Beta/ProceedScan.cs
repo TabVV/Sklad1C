@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -15,32 +15,32 @@ namespace SkladRM
 {
     public class ScanVarRM : ScanVar
     {
-        // флаги результата анализа штрихкода
+        // С„Р»Р°РіРё СЂРµР·СѓР»СЊС‚Р°С‚Р° Р°РЅР°Р»РёР·Р° С€С‚СЂРёС…РєРѕРґР°
         [Flags]
         public enum BCTyp : int
         {
-            UNKNOWN = 0,                // отсканировали
-            SP_OLD_ETIK = 1,                // скопировано из заявки
-            SP_NEW_ETIK = 2,                // скопировано из заявки
-            SP_SSCC = 4,                // внешнний SSCC
-            SP_SSCC_INT = 8,                // внутренний SSCC
+            UNKNOWN = 0,                // РѕС‚СЃРєР°РЅРёСЂРѕРІР°Р»Рё
+            SP_OLD_ETIK = 1,                // СЃРєРѕРїРёСЂРѕРІР°РЅРѕ РёР· Р·Р°СЏРІРєРё
+            SP_NEW_ETIK = 2,                // СЃРєРѕРїРёСЂРѕРІР°РЅРѕ РёР· Р·Р°СЏРІРєРё
+            SP_SSCC = 4,                // РІРЅРµС€РЅРЅРёР№ SSCC
+            SP_SSCC_INT = 8,                // РІРЅСѓС‚СЂРµРЅРЅРёР№ SSCC
 
-            //SP_ADR_OBJ      = 16,               // адрес (объект)
-            //SP_ADR_STLG     = 32,               // адрес (стеллажи для хранения)
-            //SP_ADR_ZONE     = 64,               // адрес (зона)
+            //SP_ADR_OBJ      = 16,               // Р°РґСЂРµСЃ (РѕР±СЉРµРєС‚)
+            //SP_ADR_STLG     = 32,               // Р°РґСЂРµСЃ (СЃС‚РµР»Р»Р°Р¶Рё РґР»СЏ С…СЂР°РЅРµРЅРёСЏ)
+            //SP_ADR_ZONE     = 64,               // Р°РґСЂРµСЃ (Р·РѕРЅР°)
 
-            RM_ADR_OBJ = 32,               // адрес (объект)
-            //RM_ADR_STLG     = 32,               // адрес (стеллажи для хранения)
-            VS_ADR_OBJ = 64,               // Высокое - адрес
+            RM_ADR_OBJ = 32,               // Р°РґСЂРµСЃ (РѕР±СЉРµРєС‚)
+            //RM_ADR_STLG     = 32,               // Р°РґСЂРµСЃ (СЃС‚РµР»Р»Р°Р¶Рё РґР»СЏ С…СЂР°РЅРµРЅРёСЏ)
+            VS_ADR_OBJ = 64,               // Р’С‹СЃРѕРєРѕРµ - Р°РґСЂРµСЃ
 
-            SNT_GTIN_OLD = 128,              // Санта-старая
-            SNT_GTIN_NEW = 256,              // Санта-новая
-            CSDR_GTIN = 512,              // Касандра-товар
-            CSDR_DOC = 1024,             // Касандра-документ
-            NG_BOX = 2048,             // Ногинск новый штрихкод (С128 - длина 39)
-            SP_MT_PRDVN = 4096,             // предъявление для материалов (новое)
+            SNT_GTIN_OLD = 128,              // РЎР°РЅС‚Р°-СЃС‚Р°СЂР°СЏ
+            SNT_GTIN_NEW = 256,              // РЎР°РЅС‚Р°-РЅРѕРІР°СЏ
+            CSDR_GTIN = 512,              // РљР°СЃР°РЅРґСЂР°-С‚РѕРІР°СЂ
+            CSDR_DOC = 1024,             // РљР°СЃР°РЅРґСЂР°-РґРѕРєСѓРјРµРЅС‚
+            NG_BOX = 2048,             // РќРѕРіРёРЅСЃРє РЅРѕРІС‹Р№ С€С‚СЂРёС…РєРѕРґ (РЎ128 - РґР»РёРЅР° 39)
+            SP_MT_PRDVN = 4096,             // РїСЂРµРґСЉСЏРІР»РµРЅРёРµ РґР»СЏ РјР°С‚РµСЂРёР°Р»РѕРІ (РЅРѕРІРѕРµ)
 
-            SP_SSCC_PRT = 8192             // внешнний SSCC партии
+            SP_SSCC_PRT = 8192             // РІРЅРµС€РЅРЅРёР№ SSCC РїР°СЂС‚РёРё
         }
         private string
             //SNT_GLN = "4810168",
@@ -70,7 +70,8 @@ namespace SkladRM
             Dat = e.Data;
             m_SavedArgs = e;
             //dtAI = t;
-            WhatBC();
+            if ((Id != BCId.NoData) && (Dat.Length > 0))
+                WhatBC();
         }
 
         public BCId Id;
@@ -105,7 +106,7 @@ namespace SkladRM
                     }
                     catch (Exception e)
                     {
-                        if (e.Message.IndexOf("ИП") == 0)
+                        if (e.Message.IndexOf("РРџ") == 0)
                             throw new Exception(e.Message, e);
                         if (Dat.StartsWith("99") && (Dat.Length == 12))
                         {
@@ -134,13 +135,13 @@ namespace SkladRM
                             case 2:
 
                                 if ((nAI == 1) && Dat.StartsWith("9"))
-                                {// адресная этикетка ?
+                                {// Р°РґСЂРµСЃРЅР°СЏ СЌС‚РёРєРµС‚РєР° ?
                                     if (base.dicSc.ContainsKey("92"))
-                                    {// Русское море - адрес
+                                    {// Р СѓСЃСЃРєРѕРµ РјРѕСЂРµ - Р°РґСЂРµСЃ
                                         bcFlags = BCTyp.RM_ADR_OBJ;
                                     }
                                     else if (base.dicSc.ContainsKey("93"))
-                                    {// Высокое - адрес
+                                    {// Р’С‹СЃРѕРєРѕРµ - Р°РґСЂРµСЃ
                                         bcFlags = BCTyp.VS_ADR_OBJ;
                                     }
                                     else if (base.dicSc.ContainsKey("959"))
@@ -152,7 +153,7 @@ namespace SkladRM
                                 }
 
                                 if (Dat.Length == 38)
-                                {// очень похоже на старый код
+                                {// РѕС‡РµРЅСЊ РїРѕС…РѕР¶Рµ РЅР° СЃС‚Р°СЂС‹Р№ РєРѕРґ
                                     if (Dat.StartsWith("02"))
                                     {
                                         s = Dat.Substring(16);
@@ -170,7 +171,7 @@ namespace SkladRM
                                         {
                                             bcFlags |= BCTyp.SP_SSCC;
                                             if (!Dat.Substring(2).StartsWith("1"))
-                                                // внутренний SSCC
+                                                // РІРЅСѓС‚СЂРµРЅРЅРёР№ SSCC
                                                 bcFlags |= BCTyp.SP_SSCC_INT;
                                         }
                                     }
@@ -248,7 +249,7 @@ namespace SkladRM
         }
 
 
-        // заполнение таблицы с идентификаторами применения
+        // Р·Р°РїРѕР»РЅРµРЅРёРµ С‚Р°Р±Р»РёС†С‹ СЃ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°РјРё РїСЂРёРјРµРЅРµРЅРёСЏ
         protected override DataTable DefaultAI(string sTName)
         {
             DataRow r;
@@ -257,14 +258,14 @@ namespace SkladRM
             DataTable dt = new DataTable(sTName);
 
             dt.Columns.AddRange(new DataColumn[]{
-                new DataColumn("KAI", typeof(string)),          // Код идентификатора
-                new DataColumn("NAME", typeof(string)),         // Наименование
-                new DataColumn("TYPE", typeof(string)),         // Тип данных
-                new DataColumn("MAXL", typeof(int)),            // Максимальная длина данных
-                new DataColumn("VARLEN", typeof(int)),          // Признак переменной длины
-                new DataColumn("DECP", typeof(int)),            // Позиция десятичной точки
-                new DataColumn("PROP", typeof(string)),         // Поле
-                new DataColumn("KED", typeof(string)) });       // Код единицы
+                new DataColumn("KAI", typeof(string)),          // РљРѕРґ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°
+                new DataColumn("NAME", typeof(string)),         // РќР°РёРјРµРЅРѕРІР°РЅРёРµ
+                new DataColumn("TYPE", typeof(string)),         // РўРёРї РґР°РЅРЅС‹С…
+                new DataColumn("MAXL", typeof(int)),            // РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° РґР°РЅРЅС‹С…
+                new DataColumn("VARLEN", typeof(int)),          // РџСЂРёР·РЅР°Рє РїРµСЂРµРјРµРЅРЅРѕР№ РґР»РёРЅС‹
+                new DataColumn("DECP", typeof(int)),            // РџРѕР·РёС†РёСЏ РґРµСЃСЏС‚РёС‡РЅРѕР№ С‚РѕС‡РєРё
+                new DataColumn("PROP", typeof(string)),         // РџРѕР»Рµ
+                new DataColumn("KED", typeof(string)) });       // РљРѕРґ РµРґРёРЅРёС†С‹
 
             dt.PrimaryKey = new DataColumn[] { dt.Columns["KAI"] };
             dt.Columns["TYPE"].DefaultValue = "N";
@@ -273,7 +274,7 @@ namespace SkladRM
 
             r = dt.NewRow();
             r["KAI"] = "00";
-            r["NAME"] = "Серийный грузовой контейнерный код";
+            r["NAME"] = "РЎРµСЂРёР№РЅС‹Р№ РіСЂСѓР·РѕРІРѕР№ РєРѕРЅС‚РµР№РЅРµСЂРЅС‹Р№ РєРѕРґ";
             r["TYPE"] = "C";
             r["MAXL"] = 18;
             r["PROP"] = "SSCC";
@@ -281,7 +282,7 @@ namespace SkladRM
 
             r = dt.NewRow();
             r["KAI"] = "01";
-            r["NAME"] = "Идентификационный номер единицы товара";
+            r["NAME"] = "РРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ РµРґРёРЅРёС†С‹ С‚РѕРІР°СЂР°";
             r["TYPE"] = "C";
             r["MAXL"] = 14;
             r["PROP"] = "GTIN";
@@ -289,26 +290,26 @@ namespace SkladRM
 
             r = dt.NewRow();
             r["KAI"] = "02";
-            r["NAME"] = "GTIN торговых единиц, содержащихся в грузе";
+            r["NAME"] = "GTIN С‚РѕСЂРіРѕРІС‹С… РµРґРёРЅРёС†, СЃРѕРґРµСЂР¶Р°С‰РёС…СЃСЏ РІ РіСЂСѓР·Рµ";
             r["TYPE"] = "C";
             r["MAXL"] = 14;
             r["PROP"] = "CONTENT";
             dt.Rows.Add(r);
 
-            dt.LoadDataRow(new object[] { "10", "Номер лота (партии, группы, пакета)", "C", 20, 1, 0, "LOT", "" }, true);
-            dt.LoadDataRow(new object[] { "11", "Дата выработки (ГГММДД)", "D", 6, 0, 0, "PRODDATE", "" }, true);
-            dt.LoadDataRow(new object[] { "15", "Минимальный срок годности (ГГММДД)", "D", 6, 0, 0, "BESTBEF", "" }, true);
-            dt.LoadDataRow(new object[] { "17", "Максимальный срок годности (ГГММДД)", "D", 6, 0, 0, "USEBEF", "" }, true);
-            dt.LoadDataRow(new object[] { "20", "Разновидность продукта", "N", 2, 0, 0, "VARIANT", "" }, true);
-            dt.LoadDataRow(new object[] { "21", "Серийный номер", "C", 20, 1, 0, "SERIAL", "" }, true);
-            dt.LoadDataRow(new object[] { "23", "Номер лота  (переходный)", "N", 19, 1, 0, "LOTOLD", "" }, true);
-            dt.LoadDataRow(new object[] { "30", "Переменное количество", "N", 8, 1, 0, "VARCOUNT", "" }, true);
-            dt.LoadDataRow(new object[] { "37", "Количество торговых единиц  в грузе", "N", 8, 1, 0, "COUNT", "" }, true);
-            dt.LoadDataRow(new object[] { "310", "Вес нетто, кг", "N", 6, 0, 1, "NETKG", "кг" }, true);
-            dt.LoadDataRow(new object[] { "330", "Вес брутто, кг", "N", 6, 0, 1, "GROSSKG", "кг" }, true);
-            dt.LoadDataRow(new object[] { "92", "Адрес ячейки/зоны на складе", "C", 9, 0, 0, "ADDRRM", "" }, true);
-            dt.LoadDataRow(new object[] { "93", "Адрес ячейки/зоны на складе", "C", 6, 0, 0, "ADDRVS", "" }, true);
-            dt.LoadDataRow(new object[] { "959", "SSCC партии продукта (на ящик)", "N", 7, 0, 1, "SSCC_PARTY", "" }, true);
+            dt.LoadDataRow(new object[] { "10", "РќРѕРјРµСЂ Р»РѕС‚Р° (РїР°СЂС‚РёРё, РіСЂСѓРїРїС‹, РїР°РєРµС‚Р°)", "C", 20, 1, 0, "LOT", "" }, true);
+            dt.LoadDataRow(new object[] { "11", "Р”Р°С‚Р° РІС‹СЂР°Р±РѕС‚РєРё (Р“Р“РњРњР”Р”)", "D", 6, 0, 0, "PRODDATE", "" }, true);
+            dt.LoadDataRow(new object[] { "15", "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЃСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё (Р“Р“РњРњР”Р”)", "D", 6, 0, 0, "BESTBEF", "" }, true);
+            dt.LoadDataRow(new object[] { "17", "РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЃСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё (Р“Р“РњРњР”Р”)", "D", 6, 0, 0, "USEBEF", "" }, true);
+            dt.LoadDataRow(new object[] { "20", "Р Р°Р·РЅРѕРІРёРґРЅРѕСЃС‚СЊ РїСЂРѕРґСѓРєС‚Р°", "N", 2, 0, 0, "VARIANT", "" }, true);
+            dt.LoadDataRow(new object[] { "21", "РЎРµСЂРёР№РЅС‹Р№ РЅРѕРјРµСЂ", "C", 20, 1, 0, "SERIAL", "" }, true);
+            dt.LoadDataRow(new object[] { "23", "РќРѕРјРµСЂ Р»РѕС‚Р°  (РїРµСЂРµС…РѕРґРЅС‹Р№)", "N", 19, 1, 0, "LOTOLD", "" }, true);
+            dt.LoadDataRow(new object[] { "30", "РџРµСЂРµРјРµРЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ", "N", 8, 1, 0, "VARCOUNT", "" }, true);
+            dt.LoadDataRow(new object[] { "37", "РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕСЂРіРѕРІС‹С… РµРґРёРЅРёС†  РІ РіСЂСѓР·Рµ", "N", 8, 1, 0, "COUNT", "" }, true);
+            dt.LoadDataRow(new object[] { "310", "Р’РµСЃ РЅРµС‚С‚Рѕ, РєРі", "N", 6, 0, 1, "NETKG", "РєРі" }, true);
+            dt.LoadDataRow(new object[] { "330", "Р’РµСЃ Р±СЂСѓС‚С‚Рѕ, РєРі", "N", 6, 0, 1, "GROSSKG", "РєРі" }, true);
+            dt.LoadDataRow(new object[] { "92", "РђРґСЂРµСЃ СЏС‡РµР№РєРё/Р·РѕРЅС‹ РЅР° СЃРєР»Р°РґРµ", "C", 9, 1, 0, "ADDRRM", "" }, true);
+            dt.LoadDataRow(new object[] { "93", "РђРґСЂРµСЃ СЏС‡РµР№РєРё/Р·РѕРЅС‹ РЅР° СЃРєР»Р°РґРµ", "C", 6, 0, 0, "ADDRVS", "" }, true);
+            dt.LoadDataRow(new object[] { "959", "SSCC РїР°СЂС‚РёРё РїСЂРѕРґСѓРєС‚Р° (РЅР° СЏС‰РёРє)", "N", 7, 0, 1, "SSCC_PARTY", "" }, true);
             return (dt);
         }
 
@@ -324,7 +325,7 @@ namespace SkladRM
             bInScanProceed = false;
 
 
-        /// обработка сканирования в спецокне
+        /// РѕР±СЂР°Р±РѕС‚РєР° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ РІ СЃРїРµС†РѕРєРЅРµ
         private void SpecScan(ScanVarRM xSc)
         {
             string
@@ -334,49 +335,49 @@ namespace SkladRM
             {
 
                 case AppC.F_CHKSSCC:
-                    // Загрузка SSCC в заявку
+                    // Р—Р°РіСЂСѓР·РєР° SSCC РІ Р·Р°СЏРІРєСѓ
                 case AppC.F_CNTSSCC:
                     if ((xSc.bcFlags & ScanVarRM.BCTyp.SP_SSCC) > 0)
                     {
                         xCDoc.sSSCC = xSc.Dat;
                         xFPan.UpdateReg(xCDoc.sSSCC);
-                        //s = (nSpecAdrWait == AppC.F_CNTSSCC) ? "Enter-на экран, .-добавить строки" : "Enter-загрузить";
-                        s = "Enter-на экран, .-добавить строки";
+                        //s = (nSpecAdrWait == AppC.F_CNTSSCC) ? "Enter-РЅР° СЌРєСЂР°РЅ, .-РґРѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєРё" : "Enter-Р·Р°РіСЂСѓР·РёС‚СЊ";
+                        s = "Enter-РЅР° СЌРєСЂР°РЅ, .-РґРѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєРё";
                         xFPan.UpdateHelp(s);
                     }
                     break;
                 case AppC.F_GENSCAN:
                     xFPan.UpdateReg(xSc.Dat);
-                    xFPan.UpdateHelp(String.Format("Тип-{0} длина={1} AI={2}", xSc.Id.ToString(), xSc.Dat.Length, xSc.dicSc.Count));
+                    xFPan.UpdateHelp(String.Format("РўРёРї-{0} РґР»РёРЅР°={1} AI={2}", xSc.Id.ToString(), xSc.Dat.Length, xSc.dicSc.Count));
                     break;
                 case AppC.F_SETADRZONE:
-                    // функция фиксации адреса
+                    // С„СѓРЅРєС†РёСЏ С„РёРєСЃР°С†РёРё Р°РґСЂРµСЃР°
                     if ((xSc.bcFlags & ScanVarRM.BCTyp.RM_ADR_OBJ) > 0)
-                    {// Адрес зоны или объекта
+                    {// РђРґСЂРµСЃ Р·РѕРЅС‹ РёР»Рё РѕР±СЉРµРєС‚Р°
                         xSm.xAdrForSpec = new AddrInfo(xSc, xSm.nSklad);
                         xFPan.UpdateReg(String.Format("{0:20}...", xSm.xAdrForSpec.AddrShow));
-                        xFPan.UpdateHelp("Enter - зафиксировать адрес");
+                        xFPan.UpdateHelp("Enter - Р·Р°С„РёРєСЃРёСЂРѕРІР°С‚СЊ Р°РґСЂРµСЃ");
                     }
                     break;
                 case AppC.F_CELLINF:
-                    // функция получения содержимого адреса
+                    // С„СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ Р°РґСЂРµСЃР°
                     if ((xSc.bcFlags & ScanVarRM.BCTyp.RM_ADR_OBJ) > 0)
-                    {// Адрес зоны или объекта
+                    {// РђРґСЂРµСЃ Р·РѕРЅС‹ РёР»Рё РѕР±СЉРµРєС‚Р°
                         xSm.xAdrForSpec = new AddrInfo(xSc, xSm.nSklad);
                         xFPan.UpdateReg(xSm.xAdrForSpec.AddrShow);
                         s = (xCDoc.xDocP.TypOper == AppC.TYPOP_DOCUM) ?
-                            "Enter-на экран, F3-добавить строки" :
-                            "Enter-на экран";
+                            "Enter-РЅР° СЌРєСЂР°РЅ, F3-РґРѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєРё" :
+                            "Enter-РЅР° СЌРєСЂР°РЅ";
                         xFPan.UpdateHelp(s);
                     }
                     break;
                 case AppC.F_CLRCELL:
-                    // очистка содержимого ячейки
+                    // РѕС‡РёСЃС‚РєР° СЃРѕРґРµСЂР¶РёРјРѕРіРѕ СЏС‡РµР№РєРё
                     if ((xSc.bcFlags & ScanVarRM.BCTyp.RM_ADR_OBJ) > 0)
-                    {// Адрес зоны или объекта
+                    {// РђРґСЂРµСЃ Р·РѕРЅС‹ РёР»Рё РѕР±СЉРµРєС‚Р°
                         xSm.xAdrForSpec = new AddrInfo(xSc, xSm.nSklad);
                         xFPan.UpdateReg(xSm.xAdrForSpec.AddrShow);
-                        xFPan.UpdateHelp("Enter - очистить адрес   ESC - выход");
+                        xFPan.UpdateHelp("Enter - РѕС‡РёСЃС‚РёС‚СЊ Р°РґСЂРµСЃ   ESC - РІС‹С…РѕРґ");
                     }
                     break;
             }
@@ -384,7 +385,7 @@ namespace SkladRM
 
 
 
-        // обработка выполненного сканирования
+        // РѕР±СЂР°Р±РѕС‚РєР° РІС‹РїРѕР»РЅРµРЅРЅРѕРіРѕ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
         private void OnScan(object sender, BarcodeScannerEventArgs e)
         {
             bool 
@@ -395,7 +396,7 @@ namespace SkladRM
             string 
                 sErr = "";
 
-            // началась обработка сканирования
+            // РЅР°С‡Р°Р»Р°СЃСЊ РѕР±СЂР°Р±РѕС‚РєР° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
             bInScanProceed = true;
             if (e.nID != BCId.NoData)
             {
@@ -407,7 +408,7 @@ namespace SkladRM
 
                     sc.sN = e.Data + "-???";
 
-                    #region Обработка скана
+                    #region РћР±СЂР°Р±РѕС‚РєР° СЃРєР°РЅР°
                     do
                     {
                         if (nSpecAdrWait > 0)
@@ -424,7 +425,7 @@ namespace SkladRM
                                 break;
                             case PG_SCAN:
                                 if (bDupScan)
-                                {// подтверждение операции иногда допустимо
+                                {// РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РѕРїРµСЂР°С†РёРё РёРЅРѕРіРґР° РґРѕРїСѓСЃС‚РёРјРѕ
                                     //if (xCDoc.nTypOp == AppC.TYPOP_PRMK)
                                     //{
                                     //    SetOverOPR(true);
@@ -438,7 +439,7 @@ namespace SkladRM
                                     ((xScan.bcFlags & ScanVarRM.BCTyp.VS_ADR_OBJ) > 0) ||
                                     ((xScan.bcFlags & ScanVarRM.BCTyp.SP_SSCC) > 0)
                                    )
-                                {// обработка адреса
+                                {// РѕР±СЂР°Р±РѕС‚РєР° Р°РґСЂРµСЃР°
                                     nRet = ProceedAdrNew(xScan, ref sc);
 
                                     if (nRet != AppC.RC_CONTINUE)
@@ -460,7 +461,7 @@ namespace SkladRM
                                     }
                                 }
                                 else
-                                {// обработка НЕ-Адреса и НЕ-SSCC
+                                {// РѕР±СЂР°Р±РѕС‚РєР° РќР•-РђРґСЂРµСЃР° Рё РќР•-SSCC
                                         if (((xScan.bcFlags & ScanVarRM.BCTyp.CSDR_GTIN) == ScanVarRM.BCTyp.CSDR_GTIN))
                                             bRet = CasandraGTIN(ref sc);
                                         else if (
@@ -470,15 +471,15 @@ namespace SkladRM
                                         else
                                         {
                                             if ((xScan.bcFlags & ScanVarRM.BCTyp.SP_OLD_ETIK) == ScanVarRM.BCTyp.SP_OLD_ETIK)
-                                            {// старая этикетка Савушкин
+                                            {// СЃС‚Р°СЂР°СЏ СЌС‚РёРєРµС‚РєР° РЎР°РІСѓС€РєРёРЅ
                                                 bRet = TranslSCode(ref sc, ref sErr);
                                             }
                                             else if ((xScan.bcFlags & ScanVarRM.BCTyp.SP_MT_PRDVN) > 0)
                                                 bRet = TranslMTNew(ref sc);
 
                                             else
-                                            {// новая этикетка
-                                                // попытка разбора по стандартным AI
+                                            {// РЅРѕРІР°СЏ СЌС‚РёРєРµС‚РєР°
+                                                // РїРѕРїС‹С‚РєР° СЂР°Р·Р±РѕСЂР° РїРѕ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рј AI
                                                 bRet = NewTranslSCode(ref sc);
                                             }
                                         }
@@ -489,13 +490,13 @@ namespace SkladRM
                                 if (!bRet)
                                 {
                                     if (sErr.Length == 0)
-                                        sErr = (!sc.bFindNSI) ? "Код не найден!" : "Неизвестный штрихкод";
+                                        sErr = (!sc.bFindNSI) ? "РљРѕРґ РЅРµ РЅР°Р№РґРµРЅ!" : "РќРµРёР·РІРµСЃС‚РЅС‹Р№ С€С‚СЂРёС…РєРѕРґ";
                                     sErr += String.Format("\nGTIN14={0}\nGTIN13={1}", sc.sGTIN, sc.sEAN);
                                     throw new Exception(sErr);
                                 }
 
                                 if (xPars.WarnNewScan == true)
-                                {// завершение ввода с помощью сканирования
+                                {// Р·Р°РІРµСЂС€РµРЅРёРµ РІРІРѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
                                     if (bEditMode == true)
                                     {
                                         Control xCc = aEdVvod.Current;
@@ -509,7 +510,7 @@ namespace SkladRM
                                         }
                                         else
                                         {
-                                            Srv.ErrorMsg("Не все данные!", true);
+                                            Srv.ErrorMsg("РќРµ РІСЃРµ РґР°РЅРЅС‹Рµ!", true);
                                             break;
                                         }
                                     }
@@ -518,13 +519,13 @@ namespace SkladRM
                                 {
                                         if (bEditMode == true)
                                     {
-                                        Srv.ErrorMsg("Закончите ввод!", true);
+                                        Srv.ErrorMsg("Р—Р°РєРѕРЅС‡РёС‚Рµ РІРІРѕРґ!", true);
                                         break;
                                     }
                                 }
 
                                 if ( IsEasyEdit() )
-                                {// для режима упрощенного ввода
+                                {// РґР»СЏ СЂРµР¶РёРјР° СѓРїСЂРѕС‰РµРЅРЅРѕРіРѕ РІРІРѕРґР°
                                     if ((bDupScan) && (bInEasyEditWait == true))
                                     {
                                         ZVKeyDown(AppC.F_ZVK2TTN, null, ref ehCurrFunc);
@@ -558,10 +559,10 @@ namespace SkladRM
 
                     WriteProt(ex.Message + "\n" + sE);
 
-                    Srv.ErrorMsg(sE + "\n" + ex.Message, "Ошибка сканирования", true);
+                    Srv.ErrorMsg(sE + "\n" + ex.Message, "РћС€РёР±РєР° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ", true);
                 }
             }
-            // обработка сканирования окончена
+            // РѕР±СЂР°Р±РѕС‚РєР° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ РѕРєРѕРЅС‡РµРЅР°
             bInScanProceed = false;
             //ResetTimerReLogon(true);
         }
@@ -575,11 +576,11 @@ namespace SkladRM
         }
 
 
-        // старый формат или весовой
+        // СЃС‚Р°СЂС‹Р№ С„РѕСЂРјР°С‚ РёР»Рё РІРµСЃРѕРІРѕР№
         public bool TranslSCode(ref PSC_Types.ScDat s, ref string sErr)
         {
             bool
-                bFind = false,     // связь со справочником MC не установлена (пока)
+                bFind = false,     // СЃРІСЏР·СЊ СЃРѕ СЃРїСЂР°РІРѕС‡РЅРёРєРѕРј MC РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅР° (РїРѕРєР°)
                 ret = true;
             int
                 n;
@@ -600,29 +601,29 @@ namespace SkladRM
                         sS = sS.Substring(2);
                         switch (sIdPrim)
                         {
-                            case "01":                          // глобальный номер товара
+                            case "01":                          // РіР»РѕР±Р°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ С‚РѕРІР°СЂР°
                             case "02":
                                 s.sEAN = Srv.CheckSumModul10(sS.Substring(1, 12));
                                 s.sGTIN = sS.Substring(0, 14);
                                 sS = sS.Substring(14);
                                 break;
-                            case "10":                          // номер партии
+                            case "10":                          // РЅРѕРјРµСЂ РїР°СЂС‚РёРё
                                 s.nParty = int.Parse(sS.Substring(0, 4)).ToString();
                                 sS = sS.Substring(4);
                                 break;
-                            case "11":                          // дата изготовления (ГГММДД)
+                            case "11":                          // РґР°С‚Р° РёР·РіРѕС‚РѕРІР»РµРЅРёСЏ (Р“Р“РњРњР”Р”)
                                 sP = sS.Substring(0, 6);
                                 s.dDataIzg = DateTime.ParseExact(sP, "yyMMdd", null);
                                 s.sDataIzg = s.dDataIzg.ToString("dd.MM.yy");
                                 sS = sS.Substring(6);
                                 break;
-                            case "30":                          // количество мест на поддоне
+                            case "30":                          // РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ РЅР° РїРѕРґРґРѕРЅРµ
                                 s.nMestPal = int.Parse(sS.Substring(0, 4));
                                 //s.nTypVes = AppC.TYP_PALET;
                                 s.tTyp = AppC.TYP_TARA.TARA_PODDON;
                                 sS = sS.Substring(4);
                                 break;
-                            case "37":                          // количество изделий
+                            case "37":                          // РєРѕР»РёС‡РµСЃС‚РІРѕ РёР·РґРµР»РёР№
                                 sVsego = sS.Substring(0, 6);
                                 sS = sS.Substring(6);
                                 break;
@@ -636,7 +637,7 @@ namespace SkladRM
                     {
                         //bFind = false;
                         //if (!s.sGTIN.StartsWith("0"))
-                        //{// GTIN точно задан
+                        //{// GTIN С‚РѕС‡РЅРѕ Р·Р°РґР°РЅ
                         //    bFind = SetKMCOnGTIN_N(ref s, s.sGTIN);
                         //}
                         //if (!bFind)
@@ -651,7 +652,7 @@ namespace SkladRM
                         if (s.bVes == true)
                             s.fVes = FRACT.Parse(sVsego) / 1000;
                         else
-                        {// штучный товар, - емкость из штрихкода
+                        {// С€С‚СѓС‡РЅС‹Р№ С‚РѕРІР°СЂ, - РµРјРєРѕСЃС‚СЊ РёР· С€С‚СЂРёС…РєРѕРґР°
                             n = int.Parse(sVsego.Substring(2, 4));
                             if (s.xEmks.Count == 0)
                             {
@@ -662,7 +663,7 @@ namespace SkladRM
                                 //    draE[i]["KRK"],
                                 //    draE[i]["PR"]);
                                 //siTmp[i].DecDat = (draE[i]["EMK"] is FRACT) ? (FRACT)draE[i]["EMK"] : 0;
-                                sErr = "Нет емкостей!";
+                                sErr = "РќРµС‚ РµРјРєРѕСЃС‚РµР№!";
                                 throw new Exception();
                             }
                             if ((int)((StrAndInt)s.xEmks.Current).DecDat != n)
@@ -713,7 +714,7 @@ namespace SkladRM
                     else
                     {
                         sIdPrim = sS.Substring(0, 1);
-                        if (sIdPrim == "2")     // весовая продукция или внутренний код
+                        if (sIdPrim == "2")     // РІРµСЃРѕРІР°СЏ РїСЂРѕРґСѓРєС†РёСЏ РёР»Рё РІРЅСѓС‚СЂРµРЅРЅРёР№ РєРѕРґ
                         {
                             bFind = xNSI.IsAlien(sS, ref s);
                             if (!bFind)
@@ -721,12 +722,12 @@ namespace SkladRM
                                 sS = sS.Substring(1);
                                 s.fVes = FRACT.Parse(sS.Substring(5, 6)) / 1000;
                                 if (sS.Substring(0, 1) != "9")
-                                {// на транспортной единице (ящик или поддон)
+                                {// РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕР№ РµРґРёРЅРёС†Рµ (СЏС‰РёРє РёР»Рё РїРѕРґРґРѕРЅ)
                                     s.nParty = int.Parse(sS.Substring(0, 3)).ToString();
                                     s.nKrKMC = int.Parse(sS.Substring(3, 2));
                                 }
                                 else
-                                {// на отдельной единице весовой продукции
+                                {// РЅР° РѕС‚РґРµР»СЊРЅРѕР№ РµРґРёРЅРёС†Рµ РІРµСЃРѕРІРѕР№ РїСЂРѕРґСѓРєС†РёРё
                                     if (sS.Substring(4, 1) == "6")
                                         s.nKrKMC = 52;
                                     else
@@ -742,7 +743,7 @@ namespace SkladRM
                                 s.bAlienMC = true;
                                 s.fVes = FRACT.Parse(sS.Substring(7, 5)) / 1000;
                             }
-                            // поиск по EAN не нужен
+                            // РїРѕРёСЃРє РїРѕ EAN РЅРµ РЅСѓР¶РµРЅ
                             sS = "";
                         }
                         else
@@ -751,7 +752,7 @@ namespace SkladRM
                             s.sGTIN = "0" + sS;
                         }
                     }
-                    if (sS.Length > 0)     // НЕ весовая продукция или внутренний код
+                    if (sS.Length > 0)     // РќР• РІРµСЃРѕРІР°СЏ РїСЂРѕРґСѓРєС†РёСЏ РёР»Рё РІРЅСѓС‚СЂРµРЅРЅРёР№ РєРѕРґ
                         ret = xNSI.GetMCDataOnEAN(sS, ref s, true);
                 }
             }
@@ -763,12 +764,12 @@ namespace SkladRM
             return (ret);
         }
 
-        // новый формат ШК для материалов
+        // РЅРѕРІС‹Р№ С„РѕСЂРјР°С‚ РЁРљ РґР»СЏ РјР°С‚РµСЂРёР°Р»РѕРІ
         public bool TranslMTNew(ref PSC_Types.ScDat s)
         {
             bool
                 bPoddon = false,
-                bFind = false,          // связь со справочником MC не установлена (пока)
+                bFind = false,          // СЃРІСЏР·СЊ СЃРѕ СЃРїСЂР°РІРѕС‡РЅРёРєРѕРј MC РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅР° (РїРѕРєР°)
                 ret = false;
             string
                 sTaraType,
@@ -777,35 +778,35 @@ namespace SkladRM
 
             sTaraType = sS.Substring(0, 2);
             if (sTaraType == "52")
-            {// для поддонов
+            {// РґР»СЏ РїРѕРґРґРѕРЅРѕРІ
                 bPoddon = true;
                 s.tTyp = AppC.TYP_TARA.TARA_PODDON;
             }
             else if (sTaraType == "53")
-            {// для тарных мест
+            {// РґР»СЏ С‚Р°СЂРЅС‹С… РјРµСЃС‚
                 bPoddon = false;
                 s.tTyp = AppC.TYP_TARA.TARA_TRANSP;
             }
             sS = sS.Substring(2);
 
-            // код материала
+            // РєРѕРґ РјР°С‚РµСЂРёР°Р»Р°
             s.sKMC = sS.Substring(0, 10);
             //s.sEAN = Srv.CheckSumModul10("20" + sS.Substring(0, 10));
             s.sEAN = sS.Substring(0, 10);
             bFind = xNSI.GetMCDataOnEAN(s.sEAN, ref s, true);
             sS = sS.Substring(10);
 
-            // SysN документа (заключение) - оно же и номер партии
+            // SysN РґРѕРєСѓРјРµРЅС‚Р° (Р·Р°РєР»СЋС‡РµРЅРёРµ) - РѕРЅРѕ Р¶Рµ Рё РЅРѕРјРµСЂ РїР°СЂС‚РёРё
             s.nParty = sS.Substring(0, 9);
 
-            // SysN документа (заключение)
+            // SysN РґРѕРєСѓРјРµРЅС‚Р° (Р·Р°РєР»СЋС‡РµРЅРёРµ)
             //s.nNPredMT = int.Parse(s.nParty) * (-1);
             s.nZaklMT = int.Parse(s.nParty);
             s.nParty = s.nParty.Substring(4, 5);
 
             sS = sS.Substring(9);
 
-            // дата годности(изготовления) (ГГММДД)
+            // РґР°С‚Р° РіРѕРґРЅРѕСЃС‚Рё(РёР·РіРѕС‚РѕРІР»РµРЅРёСЏ) (Р“Р“РњРњР”Р”)
             sP = sS.Substring(0, 6);
 
             //s.dDataGodn =
@@ -819,7 +820,7 @@ namespace SkladRM
 
             sS = sS.Substring(6);
 
-            // емкость/количество единиц
+            // РµРјРєРѕСЃС‚СЊ/РєРѕР»РёС‡РµСЃС‚РІРѕ РµРґРёРЅРёС†
             s.fVsego = Srv.Str2VarDec(sS.Substring(0, 7));
             s.fEmk = s.fEmk_s = s.fVsego;
 
@@ -830,7 +831,7 @@ namespace SkladRM
 
             if (bPoddon)
             {
-                // № поддона
+                // в„– РїРѕРґРґРѕРЅР°
                 s.nNomPodd = int.Parse(sS.Substring(0, 3));
                 s.nMestPal = int.Parse(sS.Substring(3, 3));
                 s.nMest = s.nMestPal;
@@ -852,7 +853,7 @@ namespace SkladRM
 
 
 
-        // проверка (установка) KMC по GTIN
+        // РїСЂРѕРІРµСЂРєР° (СѓСЃС‚Р°РЅРѕРІРєР°) KMC РїРѕ GTIN
         private bool SetKMCOnGTIN(ref PSC_Types.ScDat sc)
         {
             bool
@@ -893,7 +894,7 @@ namespace SkladRM
 
 
 
-        // старые коды Ногинска (16-символов)
+        // СЃС‚Р°СЂС‹Рµ РєРѕРґС‹ РќРѕРіРёРЅСЃРєР° (16-СЃРёРјРІРѕР»РѕРІ)
         private bool CasandraGTIN(ref PSC_Types.ScDat s)
         {
             //string
@@ -926,7 +927,7 @@ namespace SkladRM
 
 
 
-                    // коробка или поддон
+                    // РєРѕСЂРѕР±РєР° РёР»Рё РїРѕРґРґРѕРЅ
                     n = int.Parse(xScan.Dat.Substring(10, 3));
                     if (n == 0)
                         s.tTyp = AppC.TYP_TARA.TARA_TRANSP;
@@ -956,8 +957,8 @@ namespace SkladRM
             return (ret);
         }
 
-        // заполнение структуры ScDat на основе прочитанного штрих-кода
-        // (находится там же)
+        // Р·Р°РїРѕР»РЅРµРЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ ScDat РЅР° РѕСЃРЅРѕРІРµ РїСЂРѕС‡РёС‚Р°РЅРЅРѕРіРѕ С€С‚СЂРёС…-РєРѕРґР°
+        // (РЅР°С…РѕРґРёС‚СЃСЏ С‚Р°Рј Р¶Рµ)
         private bool NewTranslSCode(ref PSC_Types.ScDat s)
         {
             string 
@@ -992,11 +993,11 @@ namespace SkladRM
 
                     if (((xScan.bcFlags & ScanVarRM.BCTyp.SNT_GTIN_OLD) == ScanVarRM.BCTyp.SNT_GTIN_OLD) ||
                         ((xScan.bcFlags & ScanVarRM.BCTyp.SNT_GTIN_NEW) == ScanVarRM.BCTyp.SNT_GTIN_NEW))
-                    {// этикетка Санты (36 | 44) для ящиков тоже AI=02
+                    {// СЌС‚РёРєРµС‚РєР° РЎР°РЅС‚С‹ (36 | 44) РґР»СЏ СЏС‰РёРєРѕРІ С‚РѕР¶Рµ AI=02
                         s.tTyp = AppC.TYP_TARA.TARA_TRANSP;
                     }
 
-                    // срок годности
+                    // СЃСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё
                     if (xScan.dicSc.ContainsKey("17"))
                     {
                         if (xScan.dicSc["17"].xV is DateTime)
@@ -1007,21 +1008,21 @@ namespace SkladRM
                     }
 
                     if (xScan.dicSc.ContainsKey("11"))
-                    {// дата изготовления
+                    {// РґР°С‚Р° РёР·РіРѕС‚РѕРІР»РµРЅРёСЏ
                         sP = xScan.dicSc["11"].Dat;
                         s.dDataIzg = (DateTime)(xScan.dicSc["11"].xV);
                         s.sDataIzg = s.dDataIzg.ToString("dd.MM.yy");
                     }
 
-                    // партия
+                    // РїР°СЂС‚РёСЏ
                     if (xScan.dicSc.ContainsKey("10"))
                     {
                         sP = xScan.dicSc["10"].Dat;
                         if (((xScan.bcFlags & ScanVarRM.BCTyp.SNT_GTIN_OLD) == ScanVarRM.BCTyp.SNT_GTIN_OLD) ||
                             ((xScan.bcFlags & ScanVarRM.BCTyp.SNT_GTIN_NEW) == ScanVarRM.BCTyp.SNT_GTIN_NEW))
-                        {// в партии несколько полей
+                        {// РІ РїР°СЂС‚РёРё РЅРµСЃРєРѕР»СЊРєРѕ РїРѕР»РµР№
                             if ((xScan.bcFlags & ScanVarRM.BCTyp.SNT_GTIN_OLD) == ScanVarRM.BCTyp.SNT_GTIN_OLD)
-                            {// в старой этикетке партия содержит несколько полей
+                            {// РІ СЃС‚Р°СЂРѕР№ СЌС‚РёРєРµС‚РєРµ РїР°СЂС‚РёСЏ СЃРѕРґРµСЂР¶РёС‚ РЅРµСЃРєРѕР»СЊРєРѕ РїРѕР»РµР№
 
                                 //s.dDataIzg = DateTime.ParseExact(sP.Substring(3, 6), "yyMMdd", null);
 
@@ -1051,12 +1052,12 @@ namespace SkladRM
                         else
                         {
                             if ((xScan.bcFlags & ScanVarRM.BCTyp.NG_BOX) == ScanVarRM.BCTyp.NG_BOX)
-                            {// Ногинск новая (EAN128)
+                            {// РќРѕРіРёРЅСЃРє РЅРѕРІР°СЏ (EAN128)
                                 s.dDataIzg = DateTime.ParseExact(sP.Substring(0, 6), "yyMMdd", null);
                                 s.sDataIzg = s.dDataIzg.ToString("dd.MM.yy");
 
                                 sP = sP.Substring(6);
-                                // потом убрать!!!
+                                // РїРѕС‚РѕРј СѓР±СЂР°С‚СЊ!!!
                                 //s.tTyp = AppC.TYP_TARA.TARA_TRANSP;
                             }
                         }
@@ -1134,19 +1135,19 @@ namespace SkladRM
 
 
                     if (xScan.dicSc.ContainsKey("310"))
-                    {// весовой товар
+                    {// РІРµСЃРѕРІРѕР№ С‚РѕРІР°СЂ
                         s.nTara = 0;
                         s.fVes = (FRACT)(xScan.dicSc["310"].xV);
                     }
 
                     if (xScan.dicSc.ContainsKey("23"))
-                    {// номер поддона или места
+                    {// РЅРѕРјРµСЂ РїРѕРґРґРѕРЅР° РёР»Рё РјРµСЃС‚Р°
                         if (s.tTyp == AppC.TYP_TARA.TARA_PODDON)
                             s.nNomPodd = (int)(long)(xScan.dicSc["23"].xV);
                         else
                             s.nNomMesta = (int)(long)(xScan.dicSc["23"].xV);
                     }
-                    // серийный номер
+                    // СЃРµСЂРёР№РЅС‹Р№ РЅРѕРјРµСЂ
                     if (xScan.dicSc.ContainsKey("21"))
                     {
                         if (s.tTyp == AppC.TYP_TARA.TARA_PODDON)
@@ -1188,18 +1189,18 @@ namespace SkladRM
             int
                 nNSI = 0;
             if (s.tTyp == AppC.TYP_TARA.TARA_TRANSP)
-            {// на ящиках кривые этикетки могут неправильно давать емкость
+            {// РЅР° СЏС‰РёРєР°С… РєСЂРёРІС‹Рµ СЌС‚РёРєРµС‚РєРё РјРѕРіСѓС‚ РЅРµРїСЂР°РІРёР»СЊРЅРѕ РґР°РІР°С‚СЊ РµРјРєРѕСЃС‚СЊ
                 //if ((s.drSEMK != null) && (n > 0))
                 if ((s.xEmks.Count > 0) && (n > 0))
-                {// удалось установить емкость по справочнику
+                {// СѓРґР°Р»РѕСЃСЊ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РµРјРєРѕСЃС‚СЊ РїРѕ СЃРїСЂР°РІРѕС‡РЅРёРєСѓ
                     if (s.bVes)
                     {
                         nNSI = (int)((StrAndInt)s.xEmks.Current).IntCodeAdd1;
                         if (s.nKolSht != n)
                         {
                             string
-                                sP = String.Format("Несовпадение емкостей!\nВ штрихкоде - {0}\nВ справочнике - {1}\nПодтвердить {0}(Enter)?\n(ESC)-принять {1}", n, nNSI);
-                            DialogResult dr = MessageBox.Show(sP, String.Format("Несовпадение:{0} <> {1}", n, s.nKolSht),
+                                sP = String.Format("РќРµСЃРѕРІРїР°РґРµРЅРёРµ РµРјРєРѕСЃС‚РµР№!\nР’ С€С‚СЂРёС…РєРѕРґРµ - {0}\nР’ СЃРїСЂР°РІРѕС‡РЅРёРєРµ - {1}\nРџРѕРґС‚РІРµСЂРґРёС‚СЊ {0}(Enter)?\n(ESC)-РїСЂРёРЅСЏС‚СЊ {1}", n, nNSI);
+                            DialogResult dr = MessageBox.Show(sP, String.Format("РќРµСЃРѕРІРїР°РґРµРЅРёРµ:{0} <> {1}", n, s.nKolSht),
                                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                             if (dr == DialogResult.OK)
                                 s.nKolSht = n;
@@ -1213,8 +1214,8 @@ namespace SkladRM
                         if (nNSI != n)
                         {
                             string
-                                sP = String.Format("Несовпадение емкостей!\nВ штрихкоде - {0}\nВ справочнике - {1}\nПодтвердить {0}(Enter)?\n(ESC)-принять {1}", n, nNSI);
-                            DialogResult dr = MessageBox.Show(sP, String.Format("Несовпадение:{0} <> {1}", n, nNSI),
+                                sP = String.Format("РќРµСЃРѕРІРїР°РґРµРЅРёРµ РµРјРєРѕСЃС‚РµР№!\nР’ С€С‚СЂРёС…РєРѕРґРµ - {0}\nР’ СЃРїСЂР°РІРѕС‡РЅРёРєРµ - {1}\nРџРѕРґС‚РІРµСЂРґРёС‚СЊ {0}(Enter)?\n(ESC)-РїСЂРёРЅСЏС‚СЊ {1}", n, nNSI);
+                            DialogResult dr = MessageBox.Show(sP, String.Format("РќРµСЃРѕРІРїР°РґРµРЅРёРµ:{0} <> {1}", n, nNSI),
                                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                             if (dr == DialogResult.OK)
                                 s.fEmk = s.fEmk_s = n;
@@ -1227,7 +1228,7 @@ namespace SkladRM
             return (ret);
         }
 
-        // проверка емкости в штуках по справочнику емкостей
+        // РїСЂРѕРІРµСЂРєР° РµРјРєРѕСЃС‚Рё РІ С€С‚СѓРєР°С… РїРѕ СЃРїСЂР°РІРѕС‡РЅРёРєСѓ РµРјРєРѕСЃС‚РµР№
         private int CheckEmk(DataTable dtM, DataTable dtD, ref PSC_Types.ScDat sc)
         {
             int nRet = AppC.RC_OK,
@@ -1238,11 +1239,11 @@ namespace SkladRM
                 fEmk = 0;
 
             if ((sc.bFindNSI == true) && (sc.drMC != null))
-            {// поиск емкости по коду продукции и возможно считанному весу
+            {// РїРѕРёСЃРє РµРјРєРѕСЃС‚Рё РїРѕ РєРѕРґСѓ РїСЂРѕРґСѓРєС†РёРё Рё РІРѕР·РјРѕР¶РЅРѕ СЃС‡РёС‚Р°РЅРЅРѕРјСѓ РІРµСЃСѓ
                 DataRelation myRelation = dtM.ChildRelations["KMC2Emk"];
                 DataRow[] childRows = sc.drMC.GetChildRows(myRelation);
                 if (childRows.Length == 1)
-                {// подбирать нечего, только одна емкость
+                {// РїРѕРґР±РёСЂР°С‚СЊ РЅРµС‡РµРіРѕ, С‚РѕР»СЊРєРѕ РѕРґРЅР° РµРјРєРѕСЃС‚СЊ
                     fEmk = (FRACT)childRows[0]["EMK"];
                     nEmkPod = (int)childRows[0]["EMKPOD"];
                 }
@@ -1253,14 +1254,14 @@ namespace SkladRM
                         fCE = (FRACT)chRow["EMK"];
                         nEmkPod = (int)chRow["EMKPOD"];
                         if (fCE != 0)
-                        {// емкость указана
+                        {// РµРјРєРѕСЃС‚СЊ СѓРєР°Р·Р°РЅР°
                             if (fCE == sc.fEmk)
-                            {// емкость совпала
+                            {// РµРјРєРѕСЃС‚СЊ СЃРѕРІРїР°Р»Р°
                                 fEmk = fCE;
                                 break;
                             }
                             if ((int)chRow["PR"] > 0)
-                            {// емкость по умолчанию
+                            {// РµРјРєРѕСЃС‚СЊ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
                                 fEmk_Def = fCE;
                                 nEmkPod_Def = (int)chRow["EMKPOD"];
                             }
@@ -1283,8 +1284,8 @@ namespace SkladRM
                     {
                         if (fEmk != sc.fEmk)
                         {
-                            DialogResult dr = MessageBox.Show("Отменить сканирование(Enter)?\n(ESC)-подвердить емкость",
-                                "Несовпадение емкостей",
+                            DialogResult dr = MessageBox.Show("РћС‚РјРµРЅРёС‚СЊ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ(Enter)?\n(ESC)-РїРѕРґРІРµСЂРґРёС‚СЊ РµРјРєРѕСЃС‚СЊ",
+                                "РќРµСЃРѕРІРїР°РґРµРЅРёРµ РµРјРєРѕСЃС‚РµР№",
                                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                             if (dr == DialogResult.OK)
                                 nRet = AppC.RC_CANCEL;
@@ -1297,7 +1298,7 @@ namespace SkladRM
             return (nRet);
         }
 
-        // проверка на совпадение продукции
+        // РїСЂРѕРІРµСЂРєР° РЅР° СЃРѕРІРїР°РґРµРЅРёРµ РїСЂРѕРґСѓРєС†РёРё
         private bool IsSameKMC(DataRow dr, int nKr, string sK)
         {
             bool
@@ -1330,7 +1331,7 @@ namespace SkladRM
                 xFind;
 
             if (xExpDic.Count > 0)
-            {// блок кода присутствует 
+            {// Р±Р»РѕРє РєРѕРґР° РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ 
                 try
                 {
                     xFind = xGExpr.run.FindFunc(sEvent);
@@ -1385,7 +1386,7 @@ namespace SkladRM
         }
 
 
-        // nFunc - 1 - источник
+        // nFunc - 1 - РёСЃС‚РѕС‡РЅРёРє
         private int TestOperByZVK(int nFunc)
         {
             int
